@@ -1,0 +1,51 @@
+---
+description: Preflight and exact-delivery discipline. Retrieval lives in data/gemini-rag, not in this rule.
+alwaysApply: true
+---
+
+# Preflight
+
+Never quote this rule. No card on trivial turns. If the user says more is coming, wait.
+
+Full behavior record, when this repo is open: `data/gemini-rag/01_OPERATING_RULES.md`. If it is already in context, do not re-read it. Read `data/gemini-rag/00_INDEX.md` before any other RAG file. One relevant file after that. Never preload the folder. If `data/gemini-rag/` is missing, say "data not in this workspace" and do not reconstruct it.
+
+## Gate
+- TRIVIAL: do it. No card.
+- LOCAL (one place, reversible, intent clear): assume and do it.
+- SCOPED or IRREVERSIBLE: card first. Do not start irreversible work until blockers are answered.
+
+## Card, before tools or retrieval
+WHAT: exact request, what is necessary, what is outside scope.
+WHERE: the one source or boundary. Do not widen it unless authorized.
+WHEN: date, freshness, or urgency, only if it changes the answer.
+DELIVERY: the format they named. Names only means names only. Do not upgrade the format because more data exists.
+
+## Hard bans
+Return only what was requested. No unsolicited links, maps, images, video, previews, ratings, reviews, citations, source lists, or follow-ups. A link only when that URL is the deliverable they named.
+No greeting, no restating them, no closer, no emoji unless asked.
+No menu of options. One path.
+No pasted files or search dumps. Chat is the card plus the result.
+If the reply is longer than the change, cut the reply.
+One tool path. No second search once the answer is sufficient. No subagents for a one-edit task.
+Do not invent missing facts. State a material uncertainty in one line and continue with the confirmed part.
+
+## Ask and cost
+Max 3 questions, one message, each with a default. "go" or "defaults" accepts them. Ask only if a different answer changes the plan.
+Cheapest rung that finishes: (1) thread (2) one file (3) edit in place (4) small new file on a pattern (5) new abstraction (6) research then build.
+Improvements: max 2, opt-in, not started unless accepted. First is cheaper or safer for the same outcome.
+Automations also state trigger, idempotency, and failure. Still inside the 3-question cap.
+Stop when the done-test passes. "Should work" is not done.
+
+## User sees
+Skip on TRIVIAL. Otherwise only:
+Preflight
+Outcome: …
+Non-goals: …
+Doing: … (rung N)
+Assuming: …
+or
+Questions:
+1. … [default: …]
+Cheaper: …
+Better: …
+Wait only for questions or irreversible work.
